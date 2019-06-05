@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import uuid from 'uuid';
-const todoList = [
+const initialTodoList = [
     {
       task: 'Organize Garage',
       id: 1528817077286,
@@ -14,5 +14,11 @@ const todoList = [
   ];
 
   export class ContainerTodo extends Component {
-      
+    constructor(props) {
+        super(props);
+        this.state = {
+          todoList: initialTodoList,
+          todo: '',
+        };
+      }
   }
