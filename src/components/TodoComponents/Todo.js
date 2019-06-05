@@ -35,6 +35,26 @@ export class ContainerTodo extends Component {
             completed: false,
         };
 
-        const newTodoList 
+        const newTodoList = this.state.todoList.concat(newTodo);
+        
+        this.setState({
+            todoList: newTodoList,
+            todo: ''
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>My Todo List</h2>
+                {
+                    this.state.todoList.map(todoObj => (
+                        <div key={todoObj.id}>
+                            {todoObj.name}
+                        </div>
+                    ))
+                }
+            </div>
+        )
     }
 }
