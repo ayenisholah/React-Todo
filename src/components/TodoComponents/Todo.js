@@ -28,5 +28,13 @@ export class ContainerTodo extends Component {
         });
     }
 
-    addTodo = () =>
+    addTodo = () => {
+        const newTodo = {
+            id: uuid(),
+            task: this.state.todo,
+            completed: false,
+        };
+
+        const newTodoList 
+    }
 }
