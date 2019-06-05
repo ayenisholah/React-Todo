@@ -13,12 +13,20 @@ const initialTodoList = [
     }
   ];
 
-  export class ContainerTodo extends Component {
+export class ContainerTodo extends Component {
     constructor(props) {
         super(props);
         this.state = {
           todoList: initialTodoList,
           todo: '',
         };
-      }
-  }
+    }
+
+    changeHandler = (event) => {
+        this.setState({
+            todo: event.target.value,
+        });
+    }
+
+    addTodo = () =>
+}
