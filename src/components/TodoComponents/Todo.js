@@ -1,12 +1,19 @@
 import React from 'react';
 
-const todo =({id, task})=>{
-    return (
-        <div key={id}>
-            <p>{task}</p>
-        </div>
-    )
+class Todo extends React.Component {
+    constructor() {
+        super();
+    }
 
+    render () {
+        return (
+            <div
+                className="item"
+            >
+                <p>Todo</p>
+            </div>
+        )
+    }
 }
 
-export default todo
+export default Todo;

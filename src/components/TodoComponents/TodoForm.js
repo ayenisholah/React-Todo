@@ -1,15 +1,23 @@
 import React from 'react';
 
-const TodoForm = ({task ,changeHandler , addTodo }) =>{
-    return(
-        <div>
-           <input
-           value={task}
-           onChange={changeHandler}
-           type ='text'
-           /> 
-           <button onClick={addTodo}>Add todo</button>
-        </div>
-    )    
+class TodoForm extends React.Component {
+    constructor() {
+        super();
+    }
+
+    render() {
+        return (
+            <form>
+                <input
+                    type="text"
+                    name="item"
+                    onChange={() => {}}
+                >
+                </input>
+                <button>Add</button>
+            </form>
+        )
+    }
 }
+
 export default TodoForm

@@ -4,12 +4,20 @@
 import React from 'react';
 import Todo from './Todo'
 
-const Todolist = ({Todolist}) =>{
-    return (
-        <div>
-            {Todolist.map(todo => <Todo key={todo.id} task={todo.task} />)
-        }
-        </div>
-    )
+class Todolist extends React.Component {
+    constructor() {
+        super();
+    }
+
+    render() {
+        return (
+            <div
+                className="todo-list"
+            >
+                <p>Todo List</p>
+            </div>
+        )
+    }
 }
-export default Todolist ;
+
+export default Todolist;
