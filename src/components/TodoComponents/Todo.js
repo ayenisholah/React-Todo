@@ -1,6 +1,6 @@
 import React from 'react';
 
-const todo =({id, task, strikeThrough})=>{
+const todo =({id, task})=>{
     return (
         <div key={id}>
             <p>{task}</p>

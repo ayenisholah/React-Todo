@@ -4,7 +4,7 @@
 import React from 'react';
 import Todo from './Todo'
 
-const Todolist = ({todoArray}) =>{
+const Todolist = ({Todolist}) =>{
     return (
         <div>
             {Todolist.map(todo => <Todo key={todo.id} task={todo.task} />)

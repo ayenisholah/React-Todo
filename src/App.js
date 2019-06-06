@@ -1,5 +1,8 @@
 import React, { Component, useState } from 'react';
 import uuid from 'uuid';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm'
+
 const initialTodoList = [
     {
       task: 'Organize Garage',
@@ -46,14 +49,9 @@ export class App extends Component {
     render() {
         return (
             <div>
-                <h2>My Todo List</h2>
-                {
-                    this.state.todoList.map(todoObj => (
-                        <div key={todoObj.id}>
-                            {todoObj.name}
-                        </div>
-                    ))
-                }
+                <h2>My Todo App</h2>
+                <TodoList todoList = {this.state.todoList}/>
+                <TodoForm />
             </div>
         )
     }
