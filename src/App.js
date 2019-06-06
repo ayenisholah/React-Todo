@@ -1,9 +1,8 @@
-import React, { Component, useState } from 'react';
-import uuid from 'uuid';
+import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm'
 
-const initialTodoList = [
+const todos = [
     {
       task: 'Organize Garage',
       id: 1528817077286,
@@ -16,42 +15,75 @@ const initialTodoList = [
     }
   ];
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+class App extends React.Component {
+    constructor() {
+        super();
         this.state = {
-          todoList: initialTodoList,
-          todo: '',
+          todos,
+          formText: ''
         };
     }
 
-    changeHandler = (event) => {
+    addTodo = (event) => {
+        event.preventDefault();
+
+        const newTodo = {
+            task: event.target.todo.value,
+            completed: false,
+            id: Date.now(),
+        };
+        
         this.setState({
-            todo: event.target.value,
+            todos: this.state.todos.concat(newTodo)
         });
     }
 
-    addTodo = () => {
-        const newTodo = {
-            id: uuid(),
-            task: this.state.todo,
-            completed: false,
-        };
+    markTodoAsComplete = (id) => {
+        this.setState((previousState) => {
+            return {
+                todos: this.state.todos.map(todo => {
+                    if (todo.id === id) {
+                        return {
+                            ...todo,
+                            completed: !todo.completed
+                        }
+                    } else {
+                        return todo;
+                    }
+                })
+            }
+        });
 
-        const newTodoList = this.state.todoList.concat(newTodo);
-        
+    }
+
+    clearCompletedTodo = () => {
         this.setState({
-            todoList: newTodoList,
-            todo: ''
+            todos: this.state.todos.filter(todo => todo.completed === false)
+        });
+    }
+
+    onFormChange = (event) => {
+        this.setState({
+            formText: event.target.value
         });
     }
 
     render() {
         return (
-            <div>
-                <h2>My Todo App</h2>
-                <TodoList todoList = {this.state.todoList}/>
-                <TodoForm />
+            <div className="App">
+                <div className="header">
+                    <h2>My Todo App</h2>
+                    <TodoForm
+                        addFunction={this.addTodo}
+                        formText={this.state.formText}
+                        onFormChangeFunction={this.onFormChange}
+                />
+            </div>
+                <TodoList
+                    todoList = {this.state.todos}
+                    markTodoAsCompleteFunction={this.markTodoAsComplete}
+                    clearCompletedTodoFunction={this.clearCompletedTodo}
+                    />
             </div>
         )
     }

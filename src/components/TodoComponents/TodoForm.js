@@ -7,11 +7,14 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <form>
+            <form
+                onSubmit={this.props.addFunction}
+            >
                 <input
                     type="text"
-                    name="item"
-                    onChange={() => {}}
+                    value={this.props.formText}
+                    name="todo"
+                    onChange={this.props.onFormChangeFunction}
                 >
                 </input>
                 <button>Add</button>

@@ -15,6 +15,9 @@ class Todolist extends React.Component {
                 className="todo-list"
             >
                 <p>Todo List</p>
+                <button className="clear-btn">
+                    Clear Todo
+                </button>
             </div>
         )
     }
