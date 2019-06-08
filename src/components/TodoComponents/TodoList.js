@@ -11,11 +11,17 @@ class Todolist extends React.Component {
 
     render() {
         return (
-            <div
-                className="todo-list"
-            >
-                <p>Todo List</p>
-                <button className="clear-btn">
+            <div className="todo-list">
+                {
+                    this.props.todoList.map(todo => {
+                        return <Todo
+                        key={todo.id}
+                        itemData={todo}
+                        markCompletedFunction={this.props.markTodoAsCompleteFunction}
+                        />
+                    })
+                }
+                <button className="clear-btn" onClick={this.props.clearCompletedTodoFunction}>
                     Clear Todo
                 </button>
             </div>

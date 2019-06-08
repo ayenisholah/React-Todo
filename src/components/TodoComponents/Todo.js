@@ -8,9 +8,10 @@ class Todo extends React.Component {
     render () {
         return (
             <div
-                className="item"
+                className={`todo ${this.props.itemData.completed === true ? 'completed' : ''}`}
+                onClick={() => this.props.markCompletedFunction(this.props.itemData.id)}
             >
-                <p>Todo</p>
+                <p>{ this.props.itemData.task }</p>
             </div>
         )
     }
