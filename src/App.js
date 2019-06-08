@@ -2,14 +2,16 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm'
 
+import './Todo.css';
+
 const todos = [
     {
-      task: 'Organize Garage',
+      task: 'Laundry',
       id: 1528817077286,
       completed: false
     },
     {
-      task: 'Bake Cookies',
+      task: 'Cook',
       id: 1528817084358,
       completed: false
     }
